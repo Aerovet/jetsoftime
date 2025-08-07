@@ -2256,18 +2256,20 @@ class RandoGUI:
 
         checkbox = tk.Checkbutton(
             frame,
-            text='Enemy Element Resist Randomization',
-            variable=self.flag_dict[GameFlags.ENEMY_ELEM_RES_RANDO]
+            text='Treasure Shuffle',
+            variable=self.flag_dict[GameFlags.TREASURE_SHUFFLE]
         )
         checkbox.pack(anchor=tk.W)
 
         CreateToolTip(
             checkbox,
-            'Randomizes enemy elemental resistances. '
-            'Enemy can either have fire, water, lightning, shadow, or all resistances. '
-            'For enemies which have all resistances, defense is lowered to a value '
-            'to ensure they can be killed by physical attacks. '
+            'Uses vanilla treasure distribution for treasure rewards '
+            'The baseline distribution, plus any missing items are shuffled '
+            'and distributed to each of the treasure locations '
+            'Some items are excluded, such as key items, '
+            'which get handled by the game mode logic'
         )
+
 
         plus_ki_flags = [
             GameFlags.RESTORE_JOHNNY_RACE, GameFlags.RESTORE_TOOLS
